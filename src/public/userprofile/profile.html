@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="../userprofile/profile.css">
+    <script type="text/javascript" src="../userprofile/profile.js"></script>
+
+    <!-- <script>
+        window.onload = function(){
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+        } 
+    </script>  -->
+
+</head>
+
+<body>
+
+
+    <div class="centered">
+        <h2>Profile page</h2>
+        <h3>Slet det her det er en testg</h3>
+
+        <h2 id="name"></h2>
+        <h2 id="email"></h2>
+        <h2 id="password"></h2>
+
+        <form action="/users/me" method="POST">
+
+            <table id="profile">
+                <thead></thead>
+                <tbody id="addData">
+
+                </tbody>
+                <button type="submit" class="btn btn-primary">Update account</button>
+                <a href="/login"><button class="btn btn-danger" id="btn-profile" onclick="deleteUser()">Delete
+                        account</button></a>
+            </table>
+        </form>
+        <form action="/users/me" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <br>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" name="email" required>
+            </div>
+            <br>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="text" class="form-control" id="password" name="password" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Update account</button>
+            <a href="/login"><button class="btn btn-danger" id="btn-profile" onclick="deleteUser()">Delete
+                    account</button></a>
+        </form>
+
+        <!-- <input id="name" type="text" name="name" placeholder="Name" autofocus required>
+            <br>
+            <br>
+            <input id="email" type="email" name="email" placeholder="Email" required>
+            <br>
+            <br>
+            <input id="password" type="text" name="password" placeholder="Password" required>
+            <br><br>
+            <button type="submit">Edit profile</button> -->
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+body {
+    background-image: url("../images/guitar5.jpg");
+      background-size: cover;
+  }
+  
+  * {
+      margin:0; padding:0;
+    }
+
+#main {
+    
+    margin:auto;
+    color: white;
+    
+    
+    
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#content {
+    width:60%;
+    height: 350px;
+    margin:auto;
+    margin-top: 500px;
+    background-color: gray;
+    opacity: 0.6;
+    overflow: scroll;
+}
+
+#input {
+    opacity: 0.5;
+}
+
+
+#h3message {
+    color: white;
+    opacity: 1;
+}
+
+
+ 
+
+/* #sendMessage {
+    width:500px;
+    height: 50px;
+  
+    line-height:50px;
+    margin-bottom:30px;
+}
+
+
+
+#messColumn {
+    width:300px;
+} */

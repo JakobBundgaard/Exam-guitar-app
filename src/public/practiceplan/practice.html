@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../practiceplan/practice.css">
+    <script type="text/javascript" src="../practiceplan/practice.js"></script>
+    <title>Mesageboard</title>
+
+
+</head>
+
+<body>
+    <div id="main">
+        <form action="/tasks" method="POST">
+            <h3>Enter practiceplan here...</h3>
+
+            <textarea id="input" rows="10" cols="50" name="description" autofocus></textarea>
+
+            <br>
+            <br>
+            <input type="submit" value="Submit plan" />
+        </form>
+    </div>
+
+
+
+
+    <div id="content">
+        <!-- <form action = "/tasks" method = "GET">
+            <h3>Practiceplans</h3>
+            
+            
+        </form> -->
+
+        <table id="practice">
+            <thead>Practiceplans</thead>
+            <tbody id="addData">
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

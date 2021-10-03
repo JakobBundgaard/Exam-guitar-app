@@ -1,0 +1,16 @@
+body {
+    background-image: url("../images/guitar5.jpg");
+      background-size: cover;
+  }
+  
+  .main {
+    text-align: center;
+    color: white;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } 

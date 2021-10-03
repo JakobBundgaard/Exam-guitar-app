@@ -1,0 +1,10 @@
+body {
+    background-image: url("../images/guitar5.jpg");
+      background-size: cover;
+      color: white;
+}
+
+.main {
+    text-align: center;
+    color: white;
+  }

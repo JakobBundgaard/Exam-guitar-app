@@ -1,0 +1,41 @@
+* {
+	font-family: 'Cambria', sans-serif;
+	
+}
+
+
+.topnav {
+	background-color: black;
+	width: 100%;
+	justify-content: center;
+	display: inline-block;
+    list-style-type: none;
+	
+	
+	padding-top: 1em;
+	padding-right: 5%;
+	top: 0;
+	padding: 2px;
+	 
+}
+
+
+.nav-item {
+	padding-top: 2px;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+a:visited {
+	color: white;
+	background-color: transparent;
+	text-decoration: none;
+  }
+
+  .nav-btn {
+	margin-left: 1800px;
+	border-radius: 5%;
+	background-color: black;
+	color: white;
+	cursor: pointer;
+  }

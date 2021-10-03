@@ -1,0 +1,32 @@
+body {
+    /* background-image: url("../images/guitar5.jpg");
+    background-position: center;
+  background-repeat: no-repeat;
+      background-size: cover; */
+
+      background: url("../images/guitar5.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+  
+  .main {
+    text-align: center;
+    color: white;
+  }
+  
+  .centered {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } 
+
+.email {
+  margin-right: 35px;
+}
+
+.password {
+  margin-right: 60px;
+}
