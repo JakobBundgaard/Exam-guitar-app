@@ -8,6 +8,7 @@ const fs = require("fs")
 const Filter = require("bad-words")
 const { generateMessage } = require("../src/utils/messages")
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./utils/chat-users")
+const port = process.env.PORT || 3000;
 
 const app = express()
 
@@ -159,10 +160,10 @@ app.get("/g_chords", (req, res) => {
 })
 
 
-server.listen(process.env.PORT, (error) => {
+server.listen(port, (error) => {
     if (error) {
         console.log("Could not connect to server", error)
     }
-    console.log(`Server is up on port: ${process.env.PORT}`)
+    console.log(`Server is up on port: ${port}`)
 })
 
