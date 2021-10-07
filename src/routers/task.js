@@ -18,7 +18,7 @@ router.post("/tasks", async (req, res) => {
 
     try {
         await task.save()
-        res.status(201).redirect("/practice")
+        res.status(201).redirect("/message")
     } catch (e) {
         res.status(400).send(e)
     }

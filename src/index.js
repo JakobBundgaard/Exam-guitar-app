@@ -33,7 +33,7 @@ const register = fs.readFileSync(__dirname + "/public/register/register.html", "
 const frontpage = fs.readFileSync(__dirname + "/public/frontpage/frontpage.html", "utf-8");
 const navbar = fs.readFileSync(__dirname + "/public/navbar/navbar.html", "utf-8");
 const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
-const practice = fs.readFileSync(__dirname + "/public/practiceplan/practice.html", "utf-8");
+const message = fs.readFileSync(__dirname + "/public/messages/message.html", "utf-8");
 const chat = fs.readFileSync(__dirname + "/public/chat/join.html", "utf-8");
 const chat2 = fs.readFileSync(__dirname + "/public/chat/chat2.html", "utf-8");
 const userProfile = fs.readFileSync(__dirname + "/public/userprofile/profile.html", "utf-8");
@@ -113,8 +113,8 @@ app.get("/frontpage", (req, res) => {
     res.send(navbar + frontpage + footer);
 });
 
-app.get("/practice", (req, res) => {
-    res.send(navbar + practice + footer);
+app.get("/message", (req, res) => {
+    res.send(navbar + message + footer);
 });
 
 app.get("/chat", (req, res) => {
