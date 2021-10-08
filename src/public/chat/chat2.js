@@ -47,14 +47,6 @@ socket.on("message", (message) => {
     autoscroll()
 })
 
-// socket.on("roomData", ({ room, users }) => {
-//     console.log(room)
-//     console.log(users)
-
-//     let item = sidebarTemplate.content.querySelector("li")
-//     //item.textContent = roomData
-//     $messages.insertAdjacentHTML("beforeend", sidebarTemplate.innerHTML)
-// })
 
 $messageForm.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -88,8 +80,8 @@ socket.emit("join", { username, room }, (error) => {
 })
 
 socket.on('updateUserList', function (users) {
-    userList.innerHTML = ''
+    $userList.innerHTML = ''
     users.forEach(user => {
-        userList.innerHTML += `<li>${user}</li>`
-    })
+        $userList.innerHTML += `<li>${user}</li>`
+    });
 })

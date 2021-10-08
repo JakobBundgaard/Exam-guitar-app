@@ -34,6 +34,7 @@ const frontpage = fs.readFileSync(__dirname + "/public/frontpage/frontpage.html"
 const navbar = fs.readFileSync(__dirname + "/public/navbar/navbar.html", "utf-8");
 const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
 const message = fs.readFileSync(__dirname + "/public/messages/message.html", "utf-8");
+const bands = fs.readFileSync(__dirname + "/public/bands/bands.html", "utf-8");
 const chat = fs.readFileSync(__dirname + "/public/chat/join.html", "utf-8");
 const chat2 = fs.readFileSync(__dirname + "/public/chat/chat2.html", "utf-8");
 const userProfile = fs.readFileSync(__dirname + "/public/userprofile/profile.html", "utf-8");
@@ -116,6 +117,11 @@ app.get("/frontpage", (req, res) => {
 app.get("/message", (req, res) => {
     res.send(navbar + message + footer);
 });
+
+app.get("/bands", (req, res) => {
+    res.send(navbar + bands + footer);
+});
+
 
 app.get("/chat", (req, res) => {
     res.send(chat);

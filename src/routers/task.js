@@ -13,7 +13,8 @@ auth,
 */
 router.post("/tasks", async (req, res) => {
     const task = new Task({
-        ...req.body
+        ...req.body,
+        // owner: req.user._id
     })
 
     try {
@@ -27,10 +28,10 @@ router.post("/tasks", async (req, res) => {
 // GET /tasks?completed=false => return uncompleted tasks
 // GET /tasks?limit=10&skip=0 =< returns first 10 tasks
 // GET /tasks?sortBy=createdAt:desc
-router.get("/tasks", auth, async (req, res) => {
+router.get("/tasks", async (req, res) => {
     const match = {}
     const sort = {}
-
+    //console.log(req)
     if (req.query.completed) {
         match.completed = req.query.completed === "true"
     }
@@ -55,6 +56,27 @@ router.get("/tasks", auth, async (req, res) => {
         res.status(500).send()
     }
 })
+
+router.get("/resource", async (req, res) => {
+
+    try {
+
+        var bands = ["Cattle Decapitation", "Pantera", "Tool", "Solbrud"]
+
+        var resource = new Object();
+
+        //resource.name = "Cattle decapitation";
+
+        resource.bands = bands;
+
+        var json = JSON.stringify(resource);
+
+        res.send(json)
+    } catch (e) {
+        res.status(500).send()
+    }
+})
+
 
 router.get("/tasks/:id", auth, async (req, res) => {
     const _id = req.params.id

@@ -32,6 +32,31 @@
     }
 })();
 
+//Getting the user data
+// (async function getProfile() {
+//     console.log(1)
+//     try {
+//         $.ajax({
+//             method: "GET",
+//             url: "/users/me",
+//             dataType: "json",
+//         }).done(function (user) {
+//             console.log(2)
+
+//             // Adding profile info for profile page
+//             $("#name").val(user.name);
+//             $("#email").val(user.email);
+//             $("#password").val(user.email);
+
+
+//         });
+
+//     } catch (error) {
+//         console.log(error);
+//     }
+
+// })();
+
 // Delete the user
 function deleteUser() {
     console.log(1)
@@ -67,28 +92,5 @@ function logoutAll() {
         console.log(error);
     }
 };
-//Getting the user data
-// (async function getProfile() {
-//     console.log(1)
-//     try {
-//        $.ajax({
-//             method: "GET",
-//             url: "/users/me",
-//             dataType: "json",
-//         }).done(function(user) {
-//             console.log(2)
 
-//             // Adding profile info for profile page
-//             $("#name").val(user.name);
-//             $("#email").val(user.email);
-//             $("#password").val(user.email);
-
-
-//         });
-
-//     } catch (error) {
-//         console.log(error);
-//     }
-
-// })();
 
