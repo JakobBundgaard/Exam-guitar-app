@@ -18,9 +18,6 @@ const server = http.createServer(app)
 const socketio = require("socket.io")
 const io = socketio(server)
 
-
-
-
 app.use(express.json())
 app.use(userRouter)
 app.use(taskRouter)
@@ -37,7 +34,7 @@ const message = fs.readFileSync(__dirname + "/public/messages/message.html", "ut
 const bands = fs.readFileSync(__dirname + "/public/bands/bands.html", "utf-8");
 const chat = fs.readFileSync(__dirname + "/public/chat/join.html", "utf-8");
 const chat2 = fs.readFileSync(__dirname + "/public/chat/chat2.html", "utf-8");
-const userProfile = fs.readFileSync(__dirname + "/public/userprofile/profile.html", "utf-8");
+
 
 
 const a_chords = fs.readFileSync(__dirname + "/public/chords/a_chords.html", "utf-8");
@@ -131,9 +128,6 @@ app.get("/chat2", (req, res) => {
     res.send(chat2);
 });
 
-app.get("/profile", (req, res) => {
-    res.send(navbar + userProfile + footer);
-});
 
 
 // Chord routes

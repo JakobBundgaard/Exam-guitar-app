@@ -8,9 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../navbar/navbar.css">
-    <script type="text/javascript" src="../userprofile/profile.js"></script>
-    <!-- <script type="text/javascript" src="..//userprofile/profile.js"></script> -->
-    <!-- <link rel="stylesheet" type="text/css" href="../footer/footer.css"> -->
+
 </head>
 
 <body>
@@ -21,26 +19,12 @@
                 <a class="nav-item" href="/message">Messages</a>
                 <a class="nav-item" href="/chat" target="popup"
                     onclick="window.open('/chat', 'popup', 'width=600,height=600'); return false" ;>Chat</a>
-                <a class="nav-item" href="/profile">Profile</a>
                 <a class="nav-item" href="/bands">Bands</a>
                 <a class="nav-item" href="/a_chords">Chord Library</a>
-                <a href="/"><button class="btn btn-warning" id="btn-profile" onclick="logoutAll()">Logout</button></a>
-                <!-- <a class="nav-item" href="/">Logout</a>-->
+                <a href="/"><button class="btn btn-warning" id="btn-profile">Logout</button></a>
             </div>
-
-
-            <form action="/users/logoutAll" method="POST">
-                <button class="nav-btn" type="submit">Log Out</button>
-            </form>
-
-
         </nav>
     </div>
-
-
-
-
-
 </body>
 
 </html>

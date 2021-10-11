@@ -40,19 +40,11 @@ body {
     opacity: 1;
 }
 
-
- 
-
-/* #sendMessage {
-    width:500px;
-    height: 50px;
-  
-    line-height:50px;
-    margin-bottom:30px;
+#message {
+    
+    opacity: 1;
 }
 
-
-
-#messColumn {
-    width:300px;
-} */
+#addData input {
+    width: 400%;
+}

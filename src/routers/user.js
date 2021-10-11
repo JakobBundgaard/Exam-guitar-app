@@ -28,7 +28,6 @@ router.post("/users/login", async (req, res) => {
         //
         const token = await user.generateAuthToken()
         res.cookie('auth_token', token, { maxAge: 21600000 })
-        //res.send({ user, token })
         res.redirect("/frontpage")
     } catch (e) {
         res.status(400).redirect("/")
@@ -106,37 +105,5 @@ const upload = multer({
     }
 })
 
-router.post("/users/me/avatar", auth, upload.single("avatar"), async (req, res) => {
-    const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
-
-
-    req.user.avatar = buffer
-    await req.user.save()
-    res.send()
-}, (error, req, res, next) => {
-    res.status(400).send({ error: error.message })
-})
-
-router.delete("/users/me/avatar", auth, async (req, res) => {
-    req.user.avatar = undefined
-    await req.user.save()
-    res.send()
-})
-
-router.get("/users/:id/avatar", async (req, res) => {
-    try {
-        const user = await User.findById(req.params.id)
-
-        if (!user || !user.avatar) {
-            throw new Error()
-        }
-
-        res.set("Content-Type", "image/png")
-        res.send(user.avatar)
-
-    } catch (e) {
-        res.status(404).send()
-    }
-})
 
 module.exports = router
