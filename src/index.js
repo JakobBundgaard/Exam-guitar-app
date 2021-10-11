@@ -8,9 +8,10 @@ const fs = require("fs");
 const Filter = require("bad-words");
 const { generateMessage } = require("../src/utils/messages");
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./utils/chat-users");
-const port = process.env.PORT || 3000;
+
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 // Chat
 const http = require("http");
