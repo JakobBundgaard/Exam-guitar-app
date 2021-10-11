@@ -100,11 +100,11 @@ io.on("connection", (socket) => {
 
 // Routes
 app.get("/", (req, res) => {
-    res.send(login)
+    res.send(login + footer)
 });
 
 app.get("/register", (req, res) => {
-    res.send(register)
+    res.send(register + footer)
 });
 
 app.get("/frontpage", (req, res) => {
