@@ -1,3 +1,3 @@
 const footerAbout = document.getElementById("footer-about");
 
-footerAbout.innerText = "© Copyright " + new Date().getFullYear();
+footerAbout.innerText = "Created by: Jakob Bundgaard" + " © Copyright " + new Date().getFullYear();

@@ -1,8 +1,5 @@
 body {
-    /* background-image: url("../images/guitar5.jpg");
-    background-position: center;
-  background-repeat: no-repeat;
-      background-size: cover; */
+
 
       background: url("../images/guitar5.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;

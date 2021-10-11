@@ -2,7 +2,7 @@
     try {
         fetch('/resource', {
 
-            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            method: 'GET',
         })
             .then(response => response.json())
             .then(data => {

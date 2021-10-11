@@ -74,7 +74,6 @@ userSchema.methods.toJSON = function () {
 }
 
 
-// methods are accessible on instances of models
 userSchema.methods.generateAuthToken = async function () {
     const user = this
     const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
@@ -85,7 +84,6 @@ userSchema.methods.generateAuthToken = async function () {
     return token
 }
 
-// static methods are accessible on models
 userSchema.statics.findByCredentials = async (email, password) => {
     const user = await User.findOne({ email })
 

@@ -10,11 +10,6 @@ const taskSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    // owner: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     required: true,
-    //     ref: "User" // same as User from userModel line 103
-    // }
 }, {
     timestamps: true
 })
