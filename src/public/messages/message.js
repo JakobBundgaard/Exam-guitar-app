@@ -1,25 +1,25 @@
-// (async function getMessages() {
-//     try {
-//         console.log(1)
-//         $.ajax({
-//             method: "GET",
-//             url: "/tasks",
-//             dataType: "json"
-//         }).done(function (data) {
-//             console.log(2)
-//             $.each(data, function (i, tasks) {
-//                 console.log(3)
-//                 $("#addData")
-//                     .append($("<tr>")
-//                         .append($("<input>").val(tasks.description)))
-//             });
-//         })
+(async function getMessages() {
+    try {
+        console.log(1)
+        $.ajax({
+            method: "GET",
+            url: "/tasks",
+            dataType: "json"
+        }).done(function (data) {
+            console.log(2)
+            $.each(data, function (i, tasks) {
+                console.log(3)
+                $("#addData")
+                    .append($("<tr>")
+                        .append($("<input>").val(tasks.description)))
+            });
+        })
 
-//     } catch (error) {
-//         console.log(error);
-//     }
+    } catch (error) {
+        console.log(error);
+    }
 
-// })();
+})();
 
 (async function getMessages() {
     try {
