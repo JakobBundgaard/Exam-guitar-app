@@ -22,7 +22,7 @@ router.get("/resource", async (req, res) => {
 
     try {
 
-        var bands = ["Cattle Decapitation", "Pantera", "Tool", "Solbrud"]
+        var bands = ["Bring Back the plaque - Cattle Decapitation", "the Sleep - Pantera", " Pneuma - Tool"]
 
         var resource = new Object();
 
