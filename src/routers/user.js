@@ -41,7 +41,7 @@ router.post("/users/logout", async (req, res) => {
         })
         await req.user.save()
 
-        // res.send()
+
         res.clearCookie("auth_token").redirect("/login");
     } catch (e) {
         res.status(500).send()

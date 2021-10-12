@@ -38,7 +38,7 @@ const removeUser = (id) => {
     });
 
     if (index !== -1) {
-        return users.splice(index, 1)[0] // splice returnerer et array og vi fjerner inex 0
+        return users.splice(index, 1)[0]
     };
 };
 
