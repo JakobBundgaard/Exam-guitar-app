@@ -8,6 +8,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.post("/tasks", async (req, res) => {
     const task = new Task({
         ...req.body,
+        //owner: req.user._id
     })
 
     try {

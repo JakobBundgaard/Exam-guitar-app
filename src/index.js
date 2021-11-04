@@ -4,6 +4,7 @@ require("./db/mongoose");
 const userRouter = require("./routers/user");
 const taskRouter = require("./routers/task");
 const cookieParser = require("cookie-parser");
+const auth = require("./middleware/auth")
 const fs = require("fs");
 const Filter = require("bad-words");
 const { generateMessage } = require("../src/utils/messages");
@@ -35,6 +36,7 @@ const message = fs.readFileSync(__dirname + "/public/messages/message.html", "ut
 const bands = fs.readFileSync(__dirname + "/public/bands/bands.html", "utf-8");
 const chat = fs.readFileSync(__dirname + "/public/chat/join.html", "utf-8");
 const chat2 = fs.readFileSync(__dirname + "/public/chat/chat2.html", "utf-8");
+const userProfile = fs.readFileSync(__dirname + "/public/userprofile/profile.html", "utf-8");
 
 
 
@@ -108,25 +110,29 @@ app.get("/register", (req, res) => {
     res.send(register + footer)
 });
 
-app.get("/frontpage", (req, res) => {
+app.get("/frontpage", auth, (req, res) => {
     res.send(navbar + frontpage + footer);
 });
 
-app.get("/message", (req, res) => {
+app.get("/message", auth, (req, res) => {
     res.send(navbar + message + footer);
 });
 
-app.get("/bands", (req, res) => {
+app.get("/bands", auth, (req, res) => {
     res.send(navbar + bands + footer);
 });
 
 
-app.get("/chat", (req, res) => {
+app.get("/chat", auth, (req, res) => {
     res.send(chat);
 });
 
-app.get("/chat2", (req, res) => {
+app.get("/chat2", auth, (req, res) => {
     res.send(chat2);
+});
+
+app.get("/profile", auth, (req, res) => {
+    res.send(navbar + userProfile + footer);
 });
 
 

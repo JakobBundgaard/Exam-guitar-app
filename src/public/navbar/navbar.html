@@ -6,6 +6,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="../navbar/navbar.css">
 
 </head>
@@ -19,8 +20,9 @@
                 <a class="nav-item" href="/chat" target="popup"
                     onclick="window.open('/chat', 'popup', 'width=600,height=600'); return false" ;>Chat</a>
                 <a class="nav-item" href="/a_chords">Chord Library</a>
+                <a class="nav-item" href="/profile">Profile</a>
                 <a class="nav-item" href="/bands">Songs</a>
-                <a href="/"><button class="btn btn-warning" id="btn-profile">Logout</button></a>
+                <a onClick="logoutAll()" href="/"><button class="btn btn-warning" id="btn-profile">Logout</button></a>
             </div>
         </nav>
     </div>
