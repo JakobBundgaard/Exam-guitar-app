@@ -5,6 +5,16 @@ body {
 }
 
 .main {
+  margin: auto;
+  width: 75%;
     text-align: center;
+    color: white;
+  }
+
+  .scales_chords_api {
+    padding: 20px;
+  }
+
+  p a:visited {
     color: white;
   }

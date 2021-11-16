@@ -30,7 +30,7 @@ app.use(cookieParser());
 const login = fs.readFileSync(__dirname + "/public/login/login.html", "utf-8");
 const register = fs.readFileSync(__dirname + "/public/register/register.html", "utf-8");
 const frontpage = fs.readFileSync(__dirname + "/public/frontpage/frontpage.html", "utf-8");
-const navbar = fs.readFileSync(__dirname + "/public/navbar/navbar.html", "utf-8");
+const navbar = fs.readFileSync(__dirname + "/public/navbar/navbar2.html", "utf-8");
 const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
 const message = fs.readFileSync(__dirname + "/public/messages/message.html", "utf-8");
 const bands = fs.readFileSync(__dirname + "/public/bands/bands.html", "utf-8");

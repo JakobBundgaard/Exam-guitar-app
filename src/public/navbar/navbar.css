@@ -19,23 +19,40 @@
 	 
 }
 
+ul li {
+	padding: 5px;
+}
+
+ul li a:hover {
+	color: rgb(39, 38, 38);
+}
+
+#nav {
+	opacity: 0.9;
+}
 
 .nav-item {
-	padding-top: 2px;
+	padding-top: 4px;
 	font-size: 1.5em;
 	font-weight: bold;
 }
 
 a:visited {
-	color: white;
+	color: black;
 	background-color: transparent;
 	text-decoration: none;
   }
 
-  .nav-btn {
-	margin-left: 1800px;
+.btn {
+	
+	margin-top: 12px;
+	color: black;
+}
+
+  .logout-btn {
+	margin-right: 50px;
 	border-radius: 5%;
 	background-color: black;
-	color: white;
+	color: grey;
 	cursor: pointer;
   }
