@@ -43,11 +43,14 @@ router.get("/tasks", async (req, res) => {
     try {
         const task = await Task.find()
 
+
         if (!task) {
             return res.status(404).send()
         }
 
-        res.send(task)
+        res.send(task.reverse())
+
+
     } catch (e) {
         res.status(500).send()
     }

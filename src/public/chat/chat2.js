@@ -1,3 +1,5 @@
+//const { getUsersInRoom } = require("../../utils/chat-users")
+
 const socket = io()
 
 // Form elements. The $ is a convention for letting people know its an element for the selected DOM 
@@ -47,6 +49,11 @@ socket.on("message", (message) => {
     autoscroll()
 })
 
+socket.on("roomData", ({ room, users }) => {
+    console.log(room)
+    console.log(users)
+    //getUsersInRoom(users)
+})
 
 $messageForm.addEventListener("submit", (e) => {
     e.preventDefault()

@@ -36,7 +36,6 @@ const message = fs.readFileSync(__dirname + "/public/messages/message.html", "ut
 const bands = fs.readFileSync(__dirname + "/public/bands/bands.html", "utf-8");
 const chat = fs.readFileSync(__dirname + "/public/chat/join.html", "utf-8");
 const chat2 = fs.readFileSync(__dirname + "/public/chat/chat2.html", "utf-8");
-const userProfile = fs.readFileSync(__dirname + "/public/userprofile/profile.html", "utf-8");
 
 
 
@@ -130,12 +129,6 @@ app.get("/chat", auth, (req, res) => {
 app.get("/chat2", auth, (req, res) => {
     res.send(chat2);
 });
-
-app.get("/profile", auth, (req, res) => {
-    res.send(navbar + userProfile + footer);
-});
-
-
 
 // Chord routes
 app.get("/a_chords", (req, res) => {
