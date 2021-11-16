@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 
+
 html {
     font-size: 16px;
 }
@@ -40,15 +41,15 @@ input {
 button {
     cursor: pointer;
     padding: 12px;
-    background: #7C5CBF;
+    background: rgb(73, 71, 71);
     border: none;
-    color: white;
+    color: black;
     font-size: 16px;
     transition: background .3s ease;
 }
 
 button:hover {
-    background: #6b47b8;
+    background: rgb(100, 100, 100);
 }
 
 button:disabled {
@@ -59,7 +60,11 @@ button:disabled {
 
 
 .centered-form {
-    background: #333744;
+    background: url("../images/guitar5.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
     width: 100vw;
     height: 100vh;   
     display: flex;
@@ -86,13 +91,18 @@ button:disabled {
 
 
 .chat {
+    background: url("../images/guitar5.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
     display: flex;
 }
 
 .chat__sidebar {
     height: 100vh;
     color: white;
-    background: #333744;
+    background: rgb(34, 33, 33);
     width: 225px;
     overflow-y: scroll
 }
@@ -104,6 +114,7 @@ button:disabled {
     display: flex;
     flex-direction: column;
     max-height: 100vh;
+    color: white;
 }
 
 .chat__messages {
