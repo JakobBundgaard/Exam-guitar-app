@@ -15,9 +15,14 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Chat
+// websockets rrun on http protocol. thats why we require
 const http = require("http");
+// then we create a neww http server and parse express app to it
+// det sker behind the scenes, men så får vi ikke adgang til den rå server
+// som socketio() forventer. derfor laver vi vores egen http server her
 const server = http.createServer(app);
 const socketio = require("socket.io");
+// here we create a new socket.io instance and configure it to work with server
 const io = socketio(server);
 
 app.use(express.json());
@@ -33,10 +38,12 @@ const frontpage = fs.readFileSync(__dirname + "/public/frontpage/frontpage.html"
 const navbar = fs.readFileSync(__dirname + "/public/navbar/navbar2.html", "utf-8");
 const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
 const message = fs.readFileSync(__dirname + "/public/messages/message.html", "utf-8");
-const bands = fs.readFileSync(__dirname + "/public/bands/bands.html", "utf-8");
+
 const chat = fs.readFileSync(__dirname + "/public/chat/join.html", "utf-8");
 const chat2 = fs.readFileSync(__dirname + "/public/chat/chat2.html", "utf-8");
-
+const fretboard = fs.readFileSync(__dirname + "/public/fretboard/board.html", "utf-8");
+const tuner = fs.readFileSync(__dirname + "/public/tuner/tuner.html", "utf-8");
+const bands = fs.readFileSync(__dirname + "/public/bands/bands.html", "utf-8");
 
 
 const a_chords = fs.readFileSync(__dirname + "/public/chords/a_chords.html", "utf-8");
@@ -48,9 +55,12 @@ const f_chords = fs.readFileSync(__dirname + "/public/chords/f_chords.html", "ut
 const g_chords = fs.readFileSync(__dirname + "/public/chords/g_chords.html", "utf-8");
 
 // Chat
+// socket er et object der indeholder information om den nye forbindelse og vi kan bruge metoder på socket for at 
+// kommunikere med den specifikke client
 io.on("connection", (socket) => {
     console.log("New socket connection")
 
+    // her bruger vi spread operator og har et options argument der indeholder username og room på brugeren fra addUser
     socket.on("join", (options, callback) => {
         const { error, user } = addUser({ id: socket.id, ...options });
 
@@ -62,22 +72,24 @@ io.on("connection", (socket) => {
 
 
         io.to(user.room).emit("updatedUserList", getUsersInRoom(user.room));
-        socket.emit("message", generateMessage("Welcome to the chat").text);
-        socket.broadcast.to(user.room).emit("message", generateMessage(`${user.username} has joined`).text);
+        socket.emit("message", generateMessage("Admin - " + "Welcome to the chat").text);
+        socket.broadcast.to(user.room).emit("message", generateMessage("Admin - " + `${user.username} has joined`).text);
 
-        io.to(user.room).emit("roomData", {
-            room: user.room,
-            users: getUsersInRoom(user.room)
-        });
+        // io.to(user.room).emit("roomData", {
+        //     room: user.room,
+        //     users: getUsersInRoom(user.room)
+        // });
 
         callback();
     });
 
+    // the callback aknowledges the event and when called make sure the aknowledgement in chat2.js is sendt
     socket.on("sendMessage", (message, callback) => {
         const user = getUser(socket.id);
         const filter = new Filter();
 
         if (filter.isProfane(message)) {
+            socket.emit("message", generateMessage("Admin - " + "No foul language").text);
             return callback("Foul language not allowed! Please behave yourself")
         };
 
@@ -89,7 +101,7 @@ io.on("connection", (socket) => {
         const user = removeUser(socket.id)
 
         if (user) {
-            io.to(user.room).emit("message", generateMessage(`${user.username} has left!`).text);
+            io.to(user.room).emit("message", generateMessage("Admin - " + `${user.username} has left!`).text);
             io.to(user.room).emit("updateUserList", {
                 room: user.room,
                 users: getUsersInRoom(user.room)
@@ -130,6 +142,14 @@ app.get("/chat2", auth, (req, res) => {
     res.send(chat2);
 });
 
+app.get("/fretboard", auth, (req, res) => {
+    res.send(navbar + fretboard + footer);
+});
+
+app.get("/tuner", auth, (req, res) => {
+    res.send(navbar + tuner + footer);
+});
+
 // Chord routes
 app.get("/a_chords", (req, res) => {
     res.send(navbar + a_chords + footer)
@@ -159,7 +179,7 @@ app.get("/g_chords", (req, res) => {
     res.send(navbar + g_chords + footer)
 });
 
-
+// here we call server.listen to start our http server
 server.listen(port, (error) => {
     if (error) {
         console.log("Could not connect to server", error)

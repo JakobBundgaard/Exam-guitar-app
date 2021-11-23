@@ -21,11 +21,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <a href="/" class="navbar-brand"><img src="../images/logo.png" width="60" height="60" alt=""></a>
+                <a href="/frontpage" class="navbar-brand"><img src="../images/logo.png" width="60" height="60"
+                        alt=""></a>
                 <ul class="navbar-nav" id="navScrollspy">
-                    <li class="nav-item">
-                        <a class="nav-item" href="/frontpage">Home</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-item" href="/message">Messages</a>
                     </li>
@@ -34,14 +32,38 @@
                             onclick="window.open('/chat', 'width=600,height=600'); return false" ;>Chat</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-item" href="/fretboard">Fretboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item" href="/tuner">Tuner</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-item" href="/a_chords">Chord Library</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-item" href="/bands">Songs</a>
                     </li>
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-dark">Logout</button>
+
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            style="color: black; font-size:128%;">
+                            Resources
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/fretboard">Fretboard trainer</a>
+                            <a class="dropdown-item" href="/tuner">Tuner</a>
+                        </div>
+                    </li> -->
+                    <!-- <li class="nav-item">
+                        <a class="nav-item" href="/bands">Songs</a>
+                    </li> -->
+
+                    <li class="nav-item" id="logutBtn">
+                        <a class="nav-item" href="/">Logout</a>
                     </li>
+
+
                 </ul>
             </div>
         </nav>

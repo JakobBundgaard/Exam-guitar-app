@@ -1,5 +1,6 @@
 //const { getUsersInRoom } = require("../../utils/chat-users")
 
+// initialiserer clienten og connecter til serveren
 const socket = io()
 
 // Form elements. The $ is a convention for letting people know its an element for the selected DOM 
@@ -16,6 +17,7 @@ const messageTemplate = document.querySelector('#message-template')
 const sidebarTemplate = document.querySelector("#sidebar-template")
 
 // Options
+// Here we get back an object for username and room with the keys and values. Ignoreprefix fjerner et leading ?
 const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true })
 
 const autoscroll = () => {
@@ -41,6 +43,7 @@ const autoscroll = () => {
     }
 }
 
+// Recieves the event the server is sending.
 socket.on("message", (message) => {
     console.log(message)
     let item = messageTemplate.content.querySelector('p')
@@ -49,11 +52,12 @@ socket.on("message", (message) => {
     autoscroll()
 })
 
-socket.on("roomData", ({ room, users }) => {
-    console.log(room)
-    console.log(users)
-    //getUsersInRoom(users)
-})
+// maybee delete this
+// socket.on("roomData", ({ room, users }) => {
+//     console.log(room)
+//     console.log(users)
+//     //getUsersInRoom(users)
+// })
 
 $messageForm.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -61,6 +65,7 @@ $messageForm.addEventListener("submit", (e) => {
     // Disabling send btn to avoid sending msg twice => double click etc
     $messageFormBtn.setAttribute("disabled", "disabled")
 
+    // message i elements.message kommer fra name placeholderen i chat2.html
     const message = e.target.elements.message.value
 
     socket.emit("sendMessage", message, (error) => {
@@ -73,7 +78,7 @@ $messageForm.addEventListener("submit", (e) => {
         if (error) {
             return console.log(error)
         }
-
+        // this is the aknowledgement. it is only sendt if the callback is called in the corresponding event
         console.log("Message delivered")
 
     })
@@ -86,9 +91,9 @@ socket.emit("join", { username, room }, (error) => {
     }
 })
 
-socket.on('updateUserList', function (users) {
-    $userList.innerHTML = ''
-    users.forEach(user => {
-        $userList.innerHTML += `<li>${user}</li>`
-    });
-})
+// socket.on('updateUserList', function (users) {
+//     $userList.innerHTML = ''
+//     users.forEach(user => {
+//         $userList.innerHTML += `<li>${user}</li>`
+//     });
+// })

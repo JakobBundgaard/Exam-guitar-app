@@ -1,0 +1,59 @@
+body {
+    
+    background: url("../images/guitar5.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.container {
+    
+    margin-top: 25px;
+   
+   
+}
+
+.title {
+    text-align: center;
+}
+
+.display {
+    background: lightgray;
+    background-image: linear-gradient(gray, lightgray);
+    width: 450px;
+    height: 420px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    border: 4px solid black;
+}
+
+.btn-div {
+    display: flex;
+    width: 450px;
+    height: 250px;
+    background-color: black;
+    background-image: linear-gradient(black, rgb(12, 11, 11));
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    border: 2px solid black;
+}
+
+.title {
+    margin-top: 80px;
+}
+
+.btn {
+    background-color: blue;
+    margin-top: 80px;
+    width: 80px;
+    height: 50px;
+    border: 2px solid black;
+
+}
+
+.btn:hover {
+    background-color: rgb(6, 6, 143);
+}

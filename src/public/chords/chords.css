@@ -18,6 +18,10 @@ body {
     padding: 20px;
   }
 
+  p {
+    font-size: larger;
+  }
+
   p a:visited {
     color: white;
   }

@@ -62,6 +62,7 @@ userSchema.virtual("tasks", {
     foreignField: "owner"
 })
 
+// removing data so it doesnt get sendt back with the object
 userSchema.methods.toJSON = function () {
     const user = this
     const userObject = user.toObject()
@@ -75,7 +76,9 @@ userSchema.methods.toJSON = function () {
 
 
 userSchema.methods.generateAuthToken = async function () {
+    // Access to this fordi det er en instancemethod
     const user = this
+    // vi bruger toString fordi det er et objectId, som jwt forventer. hvis ikke får vi binær
     const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
 
     user.tokens = user.tokens.concat({ token })
