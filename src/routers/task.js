@@ -8,7 +8,6 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.post("/tasks", async (req, res) => {
     const task = new Task({
         ...req.body,
-        //owner: req.user._id
     })
 
     try {
@@ -38,8 +37,6 @@ router.get("/resource", async (req, res) => {
 })
 
 router.get("/tasks", async (req, res) => {
-
-
     try {
         const task = await Task.find()
 

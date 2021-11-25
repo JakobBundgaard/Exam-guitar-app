@@ -1,4 +1,4 @@
-let logoutBtn = document.querySelector('.logout-btn').addEventListener('click', logoutFnk);
+let logoutBtn = document.querySelector('#logutBtn').addEventListener('click', logoutFnk);
 
 async function logoutFnk() {
     console.log("logout")

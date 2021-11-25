@@ -58,15 +58,10 @@ const app = {
                 noteFret.classList.add("note-fret");
                 string.appendChild(noteFret);
 
-                // start on fret 0 want to add the first number of tuning array i
-                // so at fret 0 we add i for selected instrument, which is 4 for a guitar, s0 we cant count the tuning array
-                // and find the note for the position
                 let noteName = this.generateNoteNames((fret + instrumentTuningPresets[selectedInstrument][i]), accidentals);
                 noteFret.setAttribute("data-note", noteName);
 
                 // Add  single fretmarks. 
-                //Vi checker om vi er på første streng(vi har kun brug for at tilføje fretmarks en gang)
-                // og om indexof fret er indeholdene i singleFretmark positions og hvis det er true tilføjer vi fretmark
                 if (i === 0 && singleFretMarkPositions.indexOf(fret) !== -1) {
                     noteFret.classList.add("single-fretmark");
                 }
@@ -82,7 +77,6 @@ const app = {
         allNotes = document.querySelectorAll(".note-fret");
     },
     generateNoteNames(noteIndex, accidentals) {
-        // Getting noteNames see video 9
         noteIndex = noteIndex % 12;
         let noteName;
         if (accidentals === "flats") {
@@ -173,14 +167,12 @@ const app = {
 
         noteNameSection.addEventListener("mouseover", (event) => {
             let noteToShow = event.target.innerText;
-            // Using app and not this because we are in the callback of the eventlistener and dont have access to this
             app.toggleMultipleNotes(noteToShow, 1);
         });
 
         noteNameSection.addEventListener("mouseout", (event) => {
             if (!showAllNotesSelector.checked) {
                 let noteToShow = event.target.innerText;
-                // Using app and not this because we are in the callback of the eventlistener and dont have access to this
                 app.toggleMultipleNotes(noteToShow, 0);
             } else {
                 return;
@@ -190,7 +182,9 @@ const app = {
         });
     },
     toggleMultipleNotes(noteName, opacity) {
+        // looper over allnotes
         for (i = 0; i < allNotes.length; i++) {
+            // tjekker om noteName er ligmed data-attributen note fra css og så sætter vi opacityen
             if (allNotes[i].dataset.note === noteName) {
                 allNotes[i].style.setProperty("--noteDotOpacity", opacity);
             }

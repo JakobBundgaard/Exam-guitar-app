@@ -1,9 +1,7 @@
-//const { getUsersInRoom } = require("../../utils/chat-users")
-
 // initialiserer clienten og connecter til serveren
 const socket = io()
 
-// Form elements. The $ is a convention for letting people know its an element for the selected DOM 
+
 const $messageForm = document.querySelector("#message-form")
 const $messageFormInput = $messageForm.querySelector("input")
 const $messageFormBtn = $messageForm.querySelector("button")
@@ -17,7 +15,6 @@ const messageTemplate = document.querySelector('#message-template')
 const sidebarTemplate = document.querySelector("#sidebar-template")
 
 // Options
-// Here we get back an object for username and room with the keys and values. Ignoreprefix fjerner et leading ?
 const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true })
 
 const autoscroll = () => {
@@ -52,12 +49,13 @@ socket.on("message", (message) => {
     autoscroll()
 })
 
-// maybee delete this
-// socket.on("roomData", ({ room, users }) => {
-//     console.log(room)
-//     console.log(users)
-//     //getUsersInRoom(users)
-// })
+socket.on("msg", message => {
+    let item = messageTemplate.content.querySelector("p");
+    item.textContent = message;
+    $messages.insertAdjacentHTML("beforeend", messageTemplate.innerHTML);
+    autoscroll();
+})
+
 
 $messageForm.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -91,9 +89,3 @@ socket.emit("join", { username, room }, (error) => {
     }
 })
 
-// socket.on('updateUserList', function (users) {
-//     $userList.innerHTML = ''
-//     users.forEach(user => {
-//         $userList.innerHTML += `<li>${user}</li>`
-//     });
-// })

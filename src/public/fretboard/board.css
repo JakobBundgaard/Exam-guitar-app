@@ -60,7 +60,7 @@ label {
 .fretboard {
     display: flex;
     flex-direction: column;
-    background: #be975b url(./images/wood.jpg);
+    background: #be975b;
     width: 100%;
     min-width: 1500px;
     /* Doing a calculation to add the unit px to the variable set in root above*/

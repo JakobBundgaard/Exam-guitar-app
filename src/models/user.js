@@ -76,10 +76,9 @@ userSchema.methods.toJSON = function () {
 
 
 userSchema.methods.generateAuthToken = async function () {
-    // Access to this fordi det er en instancemethod
     const user = this
     // vi bruger toString fordi det er et objectId, som jwt forventer. hvis ikke får vi binær
-    const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
+    const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN })
 
     user.tokens = user.tokens.concat({ token })
     await user.save()
@@ -114,12 +113,6 @@ userSchema.pre("save", async function (next) {
     next()
 })
 
-// Delete user tasks when user is removed
-userSchema.pre("remove", async function (next) {
-    const user = this
-    await Task.deleteMany({ owner: user._id })
-    next()
-})
 
 const User = mongoose.model("User", userSchema)
 
